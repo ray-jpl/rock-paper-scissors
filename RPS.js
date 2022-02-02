@@ -43,6 +43,16 @@ function playRound(playerSelection, computerPlay) {
     
 }
 
+function playerInput(){
+    const options = ["rock", "paper", "scissors"];
+
+    let playerSelection = ""
+    while (options.includes(playerSelection) == false) {
+        playerSelection = (prompt("Enter Rock, Paper or Scissors")).toLowerCase();
+    }
+    return playerSelection;
+}
+
 function game() {
 
     let playerWins = 0;
@@ -51,7 +61,7 @@ function game() {
     while (playerWins < 3 && compWins < 3) {
         console.log("Player Wins = " + playerWins);
         console.log("Computer Wins = " + compWins);
-        let playerSelection = prompt("Enter Rock, Paper or Scissors");
+        let playerSelection = playerInput();
         let computerSelection = computerPlay();
         let outcome = playRound(playerSelection,computerSelection);
         
