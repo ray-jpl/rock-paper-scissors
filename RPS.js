@@ -17,6 +17,34 @@ function computerPlay() {
     }
 }
 
+function playRound(playerSelection, computerPlay) {
+    let playerChoice = playerSelection.toLowerCase();
+    console.log(playerChoice,computerPlay)
+    if (playerChoice == "rock") {
+        if (computerPlay == "scissors") {
+            return 1;
+        } else if (computerPlay == "paper") {
+            return 0;
+        }
+    } else if (playerChoice == "paper") {
+        if (computerPlay == "rock"){
+            return 1;
+        } else if (computerPlay == "scissors") {
+            return 0;
+        }        
+    } else if (playerChoice == "scissors") {
+        if (computerPlay == "paper") {
+            return 1;
+        } else if (computerPlay == "rock") {
+            return 0;
+        }
+    }
+    // If game was a tie
+    return -1;
+    
+}
+
 let playerSelection = prompt("Enter Rock, Paper or Scissors");
+const computerSelection = computerPlay();
 console.log(playerSelection); 
-console.log(computerPlay());
+playRound(playerSelection,computerSelection);
