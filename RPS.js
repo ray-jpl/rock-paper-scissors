@@ -18,20 +18,19 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerPlay) {
-    let playerChoice = playerSelection.toLowerCase();
-    if (playerChoice == "rock") {
+    if (playerSelection == "rock") {
         if (computerPlay == "scissors") {
             return 1;
         } else if (computerPlay == "paper") {
             return 0;
         }
-    } else if (playerChoice == "paper") {
+    } else if (playerSelection == "paper") {
         if (computerPlay == "rock"){
             return 1;
         } else if (computerPlay == "scissors") {
             return 0;
         }        
-    } else if (playerChoice == "scissors") {
+    } else if (playerSelection == "scissors") {
         if (computerPlay == "paper") {
             return 1;
         } else if (computerPlay == "rock") {
