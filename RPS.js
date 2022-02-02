@@ -19,7 +19,6 @@ function computerPlay() {
 
 function playRound(playerSelection, computerPlay) {
     let playerChoice = playerSelection.toLowerCase();
-    console.log(playerChoice,computerPlay)
     if (playerChoice == "rock") {
         if (computerPlay == "scissors") {
             return 1;
@@ -44,7 +43,43 @@ function playRound(playerSelection, computerPlay) {
     
 }
 
-let playerSelection = prompt("Enter Rock, Paper or Scissors");
-const computerSelection = computerPlay();
-console.log(playerSelection); 
-playRound(playerSelection,computerSelection);
+function game() {
+
+    let playerWins = 0;
+    let compWins = 0;
+
+    while (playerWins < 3 && compWins < 3) {
+        console.log("Player Wins = " + playerWins);
+        console.log("Computer Wins = " + compWins);
+        let playerSelection = prompt("Enter Rock, Paper or Scissors");
+        let computerSelection = computerPlay();
+        let outcome = playRound(playerSelection,computerSelection);
+        
+        console.log("Player: " + playerSelection + " | Computer: " + computerSelection);
+        switch (outcome) {
+            case -1:
+                console.log("Tie");
+                break;
+            case 0:
+                console.log("You Lose")
+                compWins++;
+                break;
+            case 1:
+                console.log("You Win")
+                playerWins++;
+                break;
+        }
+        console.log("\n");
+    }
+
+    console.log("Player Wins = " + playerWins);
+    console.log("Computer Wins = " + compWins);
+    if (playerWins == 3) {
+        console.log("Player Wins!")
+    } else {
+        console.log("Computer Wins!")
+    }
+}
+
+game();
+
