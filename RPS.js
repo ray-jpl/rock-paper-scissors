@@ -52,8 +52,8 @@ function playerInput(){
     return playerSelection;
 }
 
-function game() {
-
+function gameOLD() {
+    // OLD CODE FOR Bo5
     let playerWins = 0;
     let compWins = 0;
 
@@ -88,6 +88,22 @@ function game() {
     } else {
         console.log("Computer Wins!")
     }
+}
+
+function game() {
+    const rockBtn = document.querySelector('.rock');
+    const paperBtn = document.querySelector('.paper');
+    const scissorBtn = document.querySelector('.scissors');
+    const playerOptions = [rockBtn,paperBtn,scissorBtn];
+
+    playerOptions.forEach(option => option.addEventListener('click', function() {
+        let playerSelection = option.innerText;
+        let computerSelection = computerPlay();
+        console.log(playerSelection)
+    }));
+    
+
+    
 }
 
 game();
