@@ -4,52 +4,39 @@ function computerPlay() {
     
     switch (compSelection){
         case 0:
-            return("rock");
-            break;
+            return("Rock");
         case 1:
-            return("paper");
-            break;
+            return("Paper");
         case 2:
-            return("scissors")
-            break;
+            return("Scissors")
         default:
             console.log("error");
     }
 }
 
 function playRound(playerSelection, computerPlay) {
-    if (playerSelection == "rock") {
-        if (computerPlay == "scissors") {
+    if (playerSelection == "Rock") {
+        if (computerPlay == "Scissors") {
             return 1;
-        } else if (computerPlay == "paper") {
+        } else if (computerPlay == "Paper") {
             return 0;
         }
-    } else if (playerSelection == "paper") {
-        if (computerPlay == "rock"){
+    } else if (playerSelection == "Paper") {
+        if (computerPlay == "Rock"){
             return 1;
-        } else if (computerPlay == "scissors") {
+        } else if (computerPlay == "Scissors") {
             return 0;
         }        
-    } else if (playerSelection == "scissors") {
-        if (computerPlay == "paper") {
+    } else if (playerSelection == "Scissors") {
+        if (computerPlay == "Paper") {
             return 1;
-        } else if (computerPlay == "rock") {
+        } else if (computerPlay == "Rock") {
             return 0;
         }
     }
     // If game was a tie
     return -1;
     
-}
-
-function playerInput(){
-    const options = ["rock", "paper", "scissors"];
-
-    let playerSelection = ""
-    while (options.includes(playerSelection) == false) {
-        playerSelection = (prompt("Enter Rock, Paper or Scissors")).toLowerCase();
-    }
-    return playerSelection;
 }
 
 function gameOLD() {
@@ -90,21 +77,45 @@ function gameOLD() {
     }
 }
 
-function game() {
-    const rockBtn = document.querySelector('.rock');
-    const paperBtn = document.querySelector('.paper');
-    const scissorBtn = document.querySelector('.scissors');
-    const playerOptions = [rockBtn,paperBtn,scissorBtn];
+// Game
+let compWins = 0;
+let playerWins = 0;
+const playerScore = document.getElementById('playerScore')
+const compScore = document.getElementById('compScore')
+const playerChoice = document.getElementById('playerChoice')
+const compChoice = document.getElementById('compChoice')
+const outcomeMsg = document.getElementById('outcomeMsg')
 
-    playerOptions.forEach(option => option.addEventListener('click', function() {
-        let playerSelection = option.innerText;
-        let computerSelection = computerPlay();
-        console.log(playerSelection)
-    }));
-    
+const rockBtn = document.querySelector('.rock');
+const paperBtn = document.querySelector('.paper');
+const scissorBtn = document.querySelector('.scissors');
+const playerOptions = [rockBtn,paperBtn,scissorBtn];
 
-    
-}
+playerOptions.forEach(option => option.addEventListener('click', function() {
+    let playerSelection = option.innerText;
+    let computerSelection = computerPlay();
+    console.log(playerSelection)
+    let result = playRound(playerSelection,computerSelection)
+    switch (result) {
+        case -1:
+            outcomeMsg.textContent = "Tie!"
+            break;
+        case 0:
+            outcomeMsg.textContent = "You Lose!"
+            compWins++;
+            break;
+        case 1:
+            outcomeMsg.textContent = "You Win!"
+            playerWins++;
+            break;
+    }
+    playerChoice.textContent = `Player chooses: ${playerSelection}`
+    compChoice.textContent = `Computer chooses: ${computerSelection}`
+    playerScore.textContent = `Player Wins: ${playerWins}`
+    compScore.textContent = `Computer Wins: ${compWins}`
+}));    
 
-game();
+
+
+
 
