@@ -1,0 +1,64 @@
+h1 {
+    background: rgb(33, 35, 37);
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 16px 256px;
+    color: wheat;
+}
+
+body {
+    background-color: wheat;
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.results {
+    text-align: center;
+    
+    font-weight: 700;
+    font-size: 24px;   
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.score {
+    padding: 0 10px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.buttons {
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}
+
+.choices {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+
+    border-radius: 8px;
+    background: rgb(33, 35, 37);
+    color: wheat;
+    border:1px solid black;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#outcomeMsg {
+    display: flex;
+    justify-content: center;
+
+}
