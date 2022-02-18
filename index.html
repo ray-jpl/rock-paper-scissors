@@ -3,12 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <button class="rock">Rock</button>
-        <button class="paper">Paper</button>
-        <button class="scissors">Scissors</button>
-        <div class="results"></div>
+        <h1>Rock Paper Scissors</h1>
+        <div class="results">
+            <p>Results</p>
+            <div class="container">
+                <div class="score" id="playerScore">Player Wins: 0</div>
+                <div class="score" id="compScore">Computer Wins: 0</div>
+            </div>     
+        </div>
+        
+        <div class="buttons">
+            <div class="choices">
+                <button class="rock">Rock</button>
+                <button class="paper">Paper</button>
+                <button class="scissors">Scissors</button>
+            </div>  
+        </div>
+        <div class="outcome">
+            <div class="container">
+                <div class="choice" id="playerChoice"></div>
+                <div class="choice" id="compChoice"></div>
+            </div>
+            <div id=outcomeMsg></div>
+        </div>
     </body>
 </html>
 
