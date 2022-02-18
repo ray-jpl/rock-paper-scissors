@@ -39,44 +39,6 @@ function playRound(playerSelection, computerPlay) {
     
 }
 
-function gameOLD() {
-    // OLD CODE FOR Bo5
-    let playerWins = 0;
-    let compWins = 0;
-
-    while (playerWins < 3 && compWins < 3) {
-        console.log("Player Wins = " + playerWins);
-        console.log("Computer Wins = " + compWins);
-        let playerSelection = playerInput();
-        let computerSelection = computerPlay();
-        let outcome = playRound(playerSelection,computerSelection);
-        
-        console.log("Player: " + playerSelection + " | Computer: " + computerSelection);
-        switch (outcome) {
-            case -1:
-                console.log("Tie");
-                break;
-            case 0:
-                console.log("You Lose")
-                compWins++;
-                break;
-            case 1:
-                console.log("You Win")
-                playerWins++;
-                break;
-        }
-        console.log("\n");
-    }
-
-    console.log("Player Wins = " + playerWins);
-    console.log("Computer Wins = " + compWins);
-    if (playerWins == 3) {
-        console.log("Player Wins!")
-    } else {
-        console.log("Computer Wins!")
-    }
-}
-
 // Game
 let compWins = 0;
 let playerWins = 0;
